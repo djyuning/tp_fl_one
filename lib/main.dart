@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './pages/HomePage.dart';
+import './pages/MainPage.dart';
 
 void main() => runApp(new MyApp());
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       // 指定主页
-      home: new HomePage(),
+      home: new MainPage(),
 
       // 路由配置
 

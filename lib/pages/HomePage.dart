@@ -21,64 +21,21 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Home'),
-        actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.person), onPressed: () => {}),
-          new IconButton(icon: new Icon(Icons.search), onPressed: () => {}),
-        ],
-      ),
-      body: new Center(
-        child: new SingleChildScrollView(
-          child: new Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              new Image.asset('images/demo2.jpg'),
-              new Image.network(
-                  'https://i2.hdslb.com/bfs/face/7274533b300efb5110aaabdedcc8871c1cd45619.jpg@72w_72h.webp'),
-              new Text(
-                'You have pushed the button this many times:',
-              ),
-              new Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.display1,
-              ),
-            ],
-          ),
-        ),
-      ),
-      drawer: new Drawer(
+      body: new SingleChildScrollView(
         child: new Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             new Image.asset('images/demo2.jpg'),
+            new Text(
+              'You have pushed the button this many times:You have pushed the button this many times:',
+            ),
+            new Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.display1,
+            ),
           ],
         ),
-      ),
-      bottomNavigationBar: new BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: [
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.home),
-            title: new Text('Home'),
-          ),
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.rss_feed),
-            title: new Text('Home'),
-          ),
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.local_offer),
-            title: new Text('Home'),
-          ),
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.explore),
-            title: new Text('Home'),
-          ),
-          new BottomNavigationBarItem(
-            icon: new Icon(Icons.person),
-            title: new Text('Home'),
-          ),
-        ],
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: _incrementCounter,
