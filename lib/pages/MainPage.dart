@@ -11,7 +11,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _tabIndex = 0;
 
-  var _titls = [
+  var _title = [
     new Text('Home'),
     new Text('Works'),
     new Text('Service'),
@@ -19,15 +19,19 @@ class _MainPageState extends State<MainPage> {
     new Text('Setting'),
   ];
 
+  static WorksPage wp = new WorksPage();
+
   var _body = [
     new HomePage(),
-    new WorksPage(),
+    wp,
     new HomePage(),
-    new WorksPage(),
+    wp,
     new HomePage(),
   ];
 
-  var _pageController = new PageController(initialPage: 0);
+  var _pageController = new PageController(
+    initialPage: 0,
+  );
 
   void _pageChange(int index) {
     setState(() {
@@ -42,7 +46,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: _titls[_tabIndex],
+        title: _title[_tabIndex],
         actions: <Widget>[
           new IconButton(icon: new Icon(Icons.person), onPressed: () => {}),
           new IconButton(icon: new Icon(Icons.search), onPressed: () => {}),
@@ -64,23 +68,23 @@ class _MainPageState extends State<MainPage> {
         items: [
           new BottomNavigationBarItem(
             icon: new Icon(Icons.home),
-            title: _titls[0],
+            title: _title[0],
           ),
           new BottomNavigationBarItem(
             icon: new Icon(Icons.rss_feed),
-            title: _titls[1],
+            title: _title[1],
           ),
           new BottomNavigationBarItem(
             icon: new Icon(Icons.local_offer),
-            title: _titls[2],
+            title: _title[2],
           ),
           new BottomNavigationBarItem(
             icon: new Icon(Icons.explore),
-            title: _titls[3],
+            title: _title[3],
           ),
           new BottomNavigationBarItem(
             icon: new Icon(Icons.person),
-            title: _titls[4],
+            title: _title[4],
           ),
         ],
         onTap: (index) {
