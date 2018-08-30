@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './pages/MainPage.dart';
+import './pages/ThemePage.dart';
 
 void main() => runApp(new MyApp());
 
@@ -23,7 +24,9 @@ class MyApp extends StatelessWidget {
       home: new MainPage(),
 
       // 路由配置
-
+      routes: <String, WidgetBuilder>{
+        'themePage': (BuildContext context) => new ThemePage(),
+      },
     );
   }
 }

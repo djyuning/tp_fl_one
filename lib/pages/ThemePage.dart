@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 
-class WorksPage extends StatefulWidget {
+class ThemePage extends StatefulWidget {
   @override
-  _WorksPageState createState() => new _WorksPageState();
+  _ThemePageState createState() => new _ThemePageState();
 }
 
-class _WorksPageState extends State<WorksPage> {
+class _ThemePageState extends State<ThemePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Theme'),
+      ),
       body: new SingleChildScrollView(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             new Image.asset('images/demo2.jpg'),
-            new Image.asset('images/drawerBg.jpg'),
             new Image.asset('images/demo2.jpg'),
           ],
         ),

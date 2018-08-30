@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class ServicePage extends StatefulWidget {
   @override
-  _HomePageState createState() => new _HomePageState();
+  _ServicePageState createState() => new _ServicePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ServicePageState extends State<ServicePage> {
   int _counter = 0;
 
   void _incrementCounter() {
