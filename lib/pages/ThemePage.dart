@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ThemePage extends StatefulWidget {
-  @override
-  _ThemePageState createState() => new _ThemePageState();
-}
-
-class _ThemePageState extends State<ThemePage> {
+class ThemePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -17,8 +12,7 @@ class _ThemePageState extends State<ThemePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            new Image.asset('images/demo2.jpg'),
-            new Image.asset('images/demo2.jpg'),
+            new Text('312'),
           ],
         ),
       ),

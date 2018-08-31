@@ -1,42 +1,35 @@
 import 'package:flutter/material.dart';
+import 'dart:math' show Random;
 
 class ServicePage extends StatefulWidget {
+  var names = [
+    'Focus',
+    'Blue',
+    'Flutter',
+  ];
+
   @override
   _ServicePageState createState() => new _ServicePageState();
 }
 
 class _ServicePageState extends State<ServicePage> {
-  int _counter = 0;
+  String name = 'Abc';
 
-  void _incrementCounter() {
+  void _nameRandom() {
     setState(() {
-      _counter++;
+      name = widget.names[new Random().nextInt(widget.names.length)];
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new SingleChildScrollView(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            new Image.asset('images/demo2.jpg'),
-            new Text(
-              'You have pushed the button this many times:You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
+      body: new Center(
+        child: new Text(name),
       ),
       floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
+        onPressed: _nameRandom,
+        child: new Icon(Icons.refresh),
       ),
     );
   }
