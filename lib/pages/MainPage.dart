@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import './HomePage.dart';
 import './WorksPage.dart';
-import './ServicePage.dart';
+import './ServerPage.dart';
+import './SettingPage.dart';
 import './ThemePage.dart';
 
 class MainPage extends StatefulWidget {
@@ -13,33 +14,19 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _tabIndex = 0;
 
-  var _title = [
-    new Text('Home'),
-    new Text('Works'),
-    new Text('Service'),
-    new Text('About'),
+  List<Text> _title = <Text>[
+    new Text('主页'),
+    new Text('作品'),
+    new Text('服务'),
+    new Text('设置'),
   ];
 
-  var _body = [
+  List<Widget> _body = <Widget>[
     new HomePage(),
     new WorksPage(),
-    new ServicePage(),
-    new ThemePage(),
+    new ServerPage(),
+    new SettingPage(),
   ];
-
-  var _pageController = new PageController(
-    initialPage: 0,
-  );
-
-  void _pageChange(int index) {
-    setState(() {
-      if (_tabIndex != index) {
-        _tabIndex = index;
-      }
-      print(_tabIndex);
-      _pageController.jumpToPage(index);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,16 +38,8 @@ class _MainPageState extends State<MainPage> {
           new IconButton(icon: new Icon(Icons.search), onPressed: () => {}),
         ],
       ),
-      body: new PageView.builder(
-        key: new Key('MainPageView'),
-        onPageChanged: _pageChange,
-        controller: _pageController,
-        itemCount: _body.length,
-        pageSnapping: false,
-        physics: new NeverScrollableScrollPhysics(),
-        itemBuilder: (BuildContext context, int index) {
-          return _body[index];
-        },
+      body: new Center(
+        child: _body[_tabIndex],
       ),
       bottomNavigationBar: new BottomNavigationBar(
         currentIndex: _tabIndex,
@@ -85,8 +64,7 @@ class _MainPageState extends State<MainPage> {
         ],
         onTap: (index) {
           setState(() {
-            _tabIndex = index;
-            _pageChange(index);
+            this._tabIndex = index;
           });
         },
       ),

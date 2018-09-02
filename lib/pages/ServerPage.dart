@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'dart:math' show Random;
 
-class ServicePage extends StatefulWidget {
-  var names = [
+@immutable
+class ServerPage extends StatefulWidget {
+  @override
+  _ServerPageState createState() => new _ServerPageState();
+}
+
+class _ServerPageState extends State<ServerPage> {
+  String name = 'Abc';
+
+  final List<String> names = <String>[
     'Focus',
     'Blue',
     'Flutter',
   ];
 
-  @override
-  _ServicePageState createState() => new _ServicePageState();
-}
-
-class _ServicePageState extends State<ServicePage> {
-  String name = 'Abc';
-
   void _nameRandom() {
     setState(() {
-      name = widget.names[new Random().nextInt(widget.names.length)];
+      name = names[new Random().nextInt(names.length)];
     });
   }
 

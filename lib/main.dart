@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       // 该标题会显示在任务列表中
-      title: 'Flutter Demo',
+      title: '黑鬼',
 
       // 主题配置
       theme: new ThemeData(

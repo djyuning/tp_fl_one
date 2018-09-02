@@ -8,6 +8,7 @@ class ThemePage extends StatelessWidget {
         title: new Text('Theme'),
       ),
       body: new SingleChildScrollView(
+        key: new Key('ThemeScroll'),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
