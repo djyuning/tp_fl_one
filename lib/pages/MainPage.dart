@@ -4,7 +4,6 @@ import './HomePage.dart';
 import './WorksPage.dart';
 import './ServerPage.dart';
 import './SettingPage.dart';
-import './ThemePage.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -14,6 +13,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _tabIndex = 0;
 
+  PageController _controller;
+
   List<Text> _title = <Text>[
     new Text('主页'),
     new Text('作品'),
@@ -22,11 +23,26 @@ class _MainPageState extends State<MainPage> {
   ];
 
   List<Widget> _body = <Widget>[
-    new HomePage(),
-    new WorksPage(),
-    new ServerPage(),
-    new SettingPage(),
+    HomePage(),
+    WorksPage(),
+    ServerPage(),
+    SettingPage(),
   ];
+
+  void onPageChanged(int index) {
+    setState(() {
+      if (_tabIndex != index) {
+        _tabIndex = index;
+      }
+      _controller.jumpToPage(index);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = new PageController(initialPage: this._tabIndex);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +54,16 @@ class _MainPageState extends State<MainPage> {
           new IconButton(icon: new Icon(Icons.search), onPressed: () => {}),
         ],
       ),
-      body: new Center(
-        child: _body[_tabIndex],
+      body: new PageView(
+        physics: new NeverScrollableScrollPhysics(),
+        children: _body,
+        controller: _controller,
+        onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: new BottomNavigationBar(
         currentIndex: _tabIndex,
         type: BottomNavigationBarType.fixed,
+        onTap: onPageChanged,
         items: [
           new BottomNavigationBarItem(
             icon: new Icon(Icons.home),
@@ -62,11 +82,6 @@ class _MainPageState extends State<MainPage> {
             title: _title[3],
           ),
         ],
-        onTap: (index) {
-          setState(() {
-            this._tabIndex = index;
-          });
-        },
       ),
       drawer: new Drawer(
         key: new Key('DrawerMain'),
