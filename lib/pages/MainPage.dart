@@ -115,7 +115,7 @@ class _MainPageState extends State<MainPage> {
               ),
               title: new Text('激活会员'),
               onTap: () {
-                //Navigator.of(context).popAndPushNamed('themePage');
+                Navigator.of(context).popAndPushNamed('themePage');
               },
             ),
             new ListTile(
