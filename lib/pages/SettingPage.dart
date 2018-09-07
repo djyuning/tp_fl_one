@@ -31,6 +31,9 @@ class _SettingPageState extends State<SettingPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: new AppBar(
+        title: new Text('设置'),
+      ),
       body: new ListView.builder(
         itemCount: settings.length,
         itemBuilder: (BuildContext context, int index) {

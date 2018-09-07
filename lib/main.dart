@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import './pages/MainPage.dart';
 import './pages/ThemePage.dart';
-import './pages/WorkDetailPage.dart';
 
 void main() => runApp(new MyApp());
 

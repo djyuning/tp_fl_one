@@ -13,6 +13,12 @@ class _WorksPageState extends State<WorksPage>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('作品'),
+        actions: <Widget>[
+          new IconButton(icon: new Icon(Icons.search), onPressed: () => {}),
+        ],
+      ),
       body: new SingleChildScrollView(
         key: new Key('WorksScroll'),
         child: new Column(

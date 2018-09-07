@@ -25,6 +25,9 @@ class _ServerPageState extends State<ServerPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('服务'),
+      ),
       body: new Center(
         child: new Text(name),
       ),
