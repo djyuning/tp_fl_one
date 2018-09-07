@@ -12,17 +12,17 @@ class _SettingPageState extends State<SettingPage>
 
   final settings = [
     {
-      'icon': new Icon(Icons.person),
+      'icon': new Icon(Icons.archive),
       'name': 'about',
       'title': new Text('关于'),
     },
     {
-      'icon': new Icon(Icons.person),
+      'icon': new Icon(Icons.settings_backup_restore),
       'name': 'cache',
       'title': new Text('缓存'),
     },
     {
-      'icon': new Icon(Icons.person),
+      'icon': new Icon(Icons.label),
       'name': 'version',
       'title': new Text('检查版本'),
     },
@@ -38,12 +38,18 @@ class _SettingPageState extends State<SettingPage>
         itemCount: settings.length,
         itemBuilder: (BuildContext context, int index) {
           var item = settings[index];
-
-          return new ListTile(
-              leading: item['icon'],
-              title: item['title'],
-              trailing: new Icon(Icons.arrow_forward_ios),
-              onTap: () {});
+          return new Column(
+            children: <Widget>[
+              new ListTile(
+                  leading: item['icon'],
+                  title: item['title'],
+                  trailing: new Icon(Icons.keyboard_arrow_right),
+                  onTap: () {}),
+              new Divider(
+                height: 0.0,
+              ),
+            ],
+          );
         },
       ),
     );
