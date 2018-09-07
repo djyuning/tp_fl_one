@@ -8,4 +8,5 @@
 build/
 ios/.generated/
 packages
+.packages
 .flutter-plugins
