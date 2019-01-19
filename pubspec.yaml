@@ -1,13 +1,13 @@
-name: FlutterApp
-description: Flutter 学习小例子。
+name: TPFrontEnd
+description: 基于 Flutter 构建的前端指示学习和经验分享 APP。
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^0.1.2
-  carousel_slider: ^0.0.6
-  flutter_simple_video_player: ^0.0.6
+  carousel_slider: ^1.0.1
+  flutter_simple_video_player: ^0.0.8
 
 dev_dependencies:
   flutter_test:

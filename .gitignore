@@ -1,12 +1,24 @@
+# 系统
 .DS_Store
+
+# 编辑器配置
 .atom/
 .idea
 .idea/
 .vscode/
-.packages
-.pub/
-build/
-ios/.generated/
+
+# 包和插件
 packages
 .packages
+.pub/
+.gradle
+.gradle/
 .flutter-plugins
+
+# 编译
+build/
+ios/.generated/
+
+# 日志和缓存
+*.log
+*.iml

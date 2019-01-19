@@ -5,7 +5,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        // 原始为 3.0.1。https://blog.csdn.net/vocanicy/article/details/83004626
+        classpath 'com.android.tools.build:gradle:3.2.0'
     }
 }
 

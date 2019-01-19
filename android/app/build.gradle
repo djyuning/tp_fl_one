@@ -23,12 +23,20 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.tpflone"
+        applicationId "com.example.tpfrontend"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    
+    // 用法参考：https://www.jianshu.com/p/144b21179a2d
+    compileOptions {
+        // 指定编译编译 *.java 文件的 jdk 版本
+        sourceCompatibility 1.8
+        // 确保 class 文件与 targetCompatibility 指定版本，或者更新的 java 虚拟机兼容
+        targetCompatibility 1.8
     }
 
     buildTypes {
