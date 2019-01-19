@@ -1,5 +1,9 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'dart:math' show Random;
+
+import 'package:image_picker/image_picker.dart';
 
 @immutable
 class ServerPage extends StatefulWidget {
@@ -10,15 +14,13 @@ class ServerPage extends StatefulWidget {
 class _ServerPageState extends State<ServerPage> {
   String name = 'Abc';
 
-  final List<String> names = <String>[
-    'Focus',
-    'Blue',
-    'Flutter',
-  ];
+  File _image;
 
-  void _nameRandom() {
+  // 拍照
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
     setState(() {
-      name = names[new Random().nextInt(names.length)];
+      _image = image;
     });
   }
 
@@ -28,12 +30,15 @@ class _ServerPageState extends State<ServerPage> {
       appBar: new AppBar(
         title: new Text('服务'),
       ),
-      body: new Center(
-        child: new Text(name),
+      body: new Column(
+        children: <Widget>[
+          _image == null ? Text('没有选择照片 ') : Image.file(_image),
+          _image == null ? Text('没有选择照片 ') : Text(_image.toString()),
+        ],
       ),
       floatingActionButton: new FloatingActionButton(
-        onPressed: _nameRandom,
-        child: new Icon(Icons.refresh),
+        onPressed: getImage, // 点击拍照
+        child: new Icon(Icons.add_a_photo),
       ),
     );
   }

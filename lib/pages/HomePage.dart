@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
+
 import '../modal/Todo.dart';
 import 'WorkDetailPage.dart';
 
@@ -47,11 +49,16 @@ class _HomePageState extends State<HomePage>
   }
 
   Widget carouselItem() {
-    return new Container(
-      width: MediaQuery.of(context).size.width,
-      child: new Image.asset(
+    return new Material(
+      borderRadius: BorderRadius.circular(10.0),
+      color: Colors.black,
+      clipBehavior: Clip.hardEdge,
+      child: new Container(
+        width: 375.00,
+        child: new Image.asset(
         'images/demo2.jpg',
-        fit: BoxFit.fill,
+        fit: BoxFit.cover,
+      ),
       ),
     );
   }
@@ -86,7 +93,7 @@ class _HomePageState extends State<HomePage>
       appBar: new AppBar(
         title: new Text('首页'),
         actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.search), onPressed: () => {}),
+          new IconButton(icon: new Icon(Icons.search), onPressed: () => Navigator.of(context).pushNamed('themePage')),
           new IconButton(
             icon: new Icon(Icons.person),
             onPressed: () => showAlertDialog(context),
@@ -101,7 +108,7 @@ class _HomePageState extends State<HomePage>
               child: new CarouselSlider(
                 viewportFraction: 0.9,
                 items: todoData.map((i) => carouselItem()).toList(),
-                height: 240.0,
+                height: 200.0,
                 autoPlay: true,
               ),
             ),
